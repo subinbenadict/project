@@ -1,0 +1,820 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Ananda - Yoga Guide (30 Foundational Poses)</title> 
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght=0,400..700;1,400..700&family=Poppins:wght=300;400;600&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> 
+     
+    <style> 
+        /* --- CSS VARIABLES & RESET --- */ 
+        :root { 
+            --primary-color: #4A6B53; 
+            --primary-light: #EBF2EE; 
+            --accent-color: #8AA891; 
+            --text-dark: #2C3E35; 
+            --text-light: #607266; 
+            --white: #FFFFFF; 
+            --background: #F7FAF8; 
+            --transition: all 0.3s ease; 
+        } 
+ 
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+            font-family: 'Poppins', sans-serif; 
+        } 
+ 
+        html { 
+            scroll-behavior: smooth; 
+        } 
+ 
+        body { 
+            background-color: var(--background); 
+            color: var(--text-dark); 
+            line-height: 1.6; 
+            padding-top: 80px; 
+        } 
+ 
+        h1, h2, h3, .logo { 
+            font-family: 'Playfair Display', serif; 
+        } 
+ 
+        /* --- NAVIGATION --- */ 
+        header { 
+            position: fixed; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            background-color: rgba(255, 255, 255, 0.95); 
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05); 
+            z-index: 1000; 
+        } 
+ 
+        .navbar { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            padding: 1rem 2rem; 
+        } 
+ 
+        .logo { 
+            font-size: 1.8rem; 
+            font-weight: 700; 
+            color: var(--primary-color); 
+            text-decoration: none; 
+            display: flex; 
+            align-items: center; 
+            gap: 10px; 
+        } 
+ 
+        .nav-links { 
+            display: flex; 
+            list-style: none; 
+            gap: 2rem; 
+        } 
+ 
+        .nav-links a { 
+            text-decoration: none; 
+            color: var(--text-dark); 
+            font-weight: 600; 
+            font-size: 0.95rem; 
+            transition: var(--transition); 
+        } 
+
+        .nav-links li {
+            list-style: none;
+        }
+ 
+        .nav-links a:hover, .nav-links a.active { 
+            color: var(--primary-color); 
+        } 
+ 
+        .menu-toggle { 
+            display: none; 
+            font-size: 1.5rem; 
+            cursor: pointer; 
+            color: var(--primary-color); 
+        } 
+ 
+        /* --- YOGA GUIDE SECTION --- */ 
+        section { 
+            padding: 4rem 2rem; 
+            max-width: 1200px; 
+            margin: 0 auto; 
+        } 
+ 
+        .section-title { 
+            text-align: center; 
+            font-size: 2.5rem; 
+            color: var(--primary-color); 
+            margin-bottom: 1rem; 
+            position: relative; 
+        } 
+ 
+        .section-title::after { 
+            content: ''; 
+            display: block; 
+            width: 50px; 
+            height: 3px; 
+            background-color: var(--accent-color); 
+            margin: 0.5rem auto 0 auto; 
+            border-radius: 2px; 
+        } 
+ 
+        .section-subtitle { 
+            text-align: center; 
+            color: var(--text-light); 
+            margin-bottom: 3rem; 
+            max-width: 600px; 
+            margin-left: auto; 
+            margin-right: auto; 
+        } 
+ 
+        .pose-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+            gap: 2rem; 
+        } 
+ 
+        .pose-card { 
+            background: var(--white); 
+            border-radius: 15px; 
+            overflow: hidden; 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.03); 
+            transition: var(--transition); 
+            border: 1px solid var(--primary-light); 
+            display: flex; 
+            flex-direction: column; 
+        } 
+ 
+        .pose-card:hover { 
+            transform: translateY(-5px); 
+            box-shadow: 0 10px 25px rgba(74, 107, 83, 0.1); 
+        } 
+ 
+        .pose-img { 
+            width: 100%; 
+            height: 220px; 
+            object-fit: cover; 
+        } 
+ 
+        .pose-info { 
+            padding: 1.5rem; 
+            display: flex; 
+            flex-direction: column; 
+            flex-grow: 1; 
+        } 
+ 
+        .pose-info h3 { 
+            color: var(--primary-color); 
+            font-size: 1.3rem; 
+            margin-bottom: 0.5rem; 
+        } 
+ 
+        .pose-info p { 
+            font-size: 0.9rem; 
+            color: var(--text-light); 
+            margin-bottom: 1.5rem; 
+            flex-grow: 1; 
+        } 
+ 
+        .btn-secondary { 
+            background: transparent; 
+            color: var(--primary-color); 
+            border: 2px solid var(--primary-color); 
+            padding: 0.5rem 1.5rem; 
+            box-shadow: none; 
+            text-align: center; 
+            border-radius: 30px; 
+            font-weight: 600; 
+            cursor: pointer; 
+            transition: var(--transition); 
+        } 
+ 
+        .btn-secondary:hover { 
+            background: var(--primary-color); 
+            color: var(--white); 
+            box-shadow: none; 
+        } 
+ 
+        /* --- POPUP MODAL --- */ 
+        .modal { 
+            display: none; 
+            position: fixed; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            height: 100%; 
+            background-color: rgba(0, 0, 0, 0.6); 
+            backdrop-filter: blur(5px); 
+            z-index: 2000; 
+            justify-content: center; 
+            align-items: center; 
+            padding: 1rem; 
+        } 
+ 
+        .modal-content { 
+            background-color: var(--white); 
+            max-width: 550px; 
+            width: 100%; 
+            padding: 2.5rem 2rem; 
+            border-radius: 20px; 
+            position: relative; 
+            animation: slideDown 0.4s ease; 
+        } 
+ 
+        .close-modal { 
+            position: absolute; 
+            top: 1.5rem; 
+            right: 1.5rem; 
+            font-size: 1.5rem; 
+            cursor: pointer; 
+            color: var(--text-light); 
+            transition: var(--transition); 
+        } 
+ 
+        .close-modal:hover { 
+            color: #d9534f; 
+        } 
+ 
+        #modal-title { 
+            color: var(--primary-color); 
+            margin-bottom: 1rem; 
+            font-size: 1.8rem; 
+        } 
+ 
+        #modal-steps { 
+            background-color: #f0f4f1; 
+            padding: 1rem; 
+            border-radius: 10px; 
+            margin-top: 0.5rem; 
+            margin-bottom: 1rem; 
+            font-size: 0.95rem; 
+            white-space: pre-line; 
+            border-left: 3px solid var(--accent-color); 
+        } 
+ 
+        #modal-benefits { 
+            background-color: var(--primary-light); 
+            padding: 1rem; 
+            border-radius: 10px; 
+        } 
+ 
+        /* --- FOOTER --- */ 
+        footer { 
+            background-color: var(--primary-color); 
+            color: var(--white); 
+            text-align: center; 
+            padding: 2rem; 
+            margin-top: 4rem; 
+            font-size: 0.9rem; 
+        } 
+ 
+        @keyframes slideDown { 
+            from { opacity: 0; transform: translateY(-50px); } 
+            to { opacity: 1; transform: translateY(0); } 
+        } 
+ 
+        @media (max-width: 768px) { 
+            .nav-links { 
+                display: none; 
+                flex-direction: column; 
+                position: absolute; 
+                top: 100%; 
+                left: 0; 
+                width: 100%; 
+                background-color: var(--white); 
+                padding: 1.5rem; 
+                box-shadow: 0 5px 10px rgba(0,0,0,0.05); 
+                text-align: center; 
+                gap: 1.2rem; 
+                z-index: 999; 
+            } 
+            .nav-links.active { display: flex; } 
+            .menu-toggle { display: block; } 
+        } 
+    </style> 
+</head> 
+<body> 
+ 
+    <header> 
+        <nav class="navbar"> 
+            <a href="home.html" class="logo"><i class="fa-solid fa-seedling"></i> Ananda</a> 
+            <div class="menu-toggle" id="mobile-menu"> 
+                <i class="fa-solid fa-bars"></i> 
+            </div> 
+            <ul class="nav-links">
+                <li><a href="/home">Home</a></li>
+                <li><a href="/guide" class="active">Yoga Guide</a></li>
+                <li><a href="/benefits" >Benefits</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/contact">Contact</a></li>
+            </ul>
+            <div id="google_translate_element"></div>
+        </nav> 
+    </header> 
+ 
+    <section id="guide"> 
+        <h2 class="section-title">Yoga Guide</h2> 
+        <p class="section-subtitle">Explore 30 classic, foundational yoga asanas structured with imagery to optimize your mindful physical evolution.</p> 
+           
+        <div class="pose-grid"> 
+            <div class="pose-card"> 
+                <img src="static/Mountain Pose.jpg" alt="Mountain Pose" class="pose-img"> 
+                <div class="pose-info"> 
+                    <h3>Mountain Pose (Tadasana)</h3> 
+                    <p>Improves baseline structural posture, spinal alignment, and balance equilibrium.</p> 
+                    <button class="btn btn-secondary learn-more-btn" data-pose="tadasana">Learn More</button> 
+                </div> 
+            </div> 
+ 
+            <div class="pose-card"> 
+                <img src="/static/Downward Dog (Adho Mukha Svanasana).jpg" alt="Downward Facing Dog" class="pose-img"> 
+                <div class="pose-info"> 
+                    <h3>Downward Dog (Adho Mukha Svanasana)</h3> 
+                    <p>A rejuvenating full-body stretch that energizes the entire biological framework.</p> 
+                    <button class="btn btn-secondary learn-more-btn" data-pose="adho">Learn More</button> 
+                </div> 
+            </div> 
+ 
+            <div class="pose-card"> 
+                <img src="https://images.unsplash.com/photo-1575052814086-f385e2e2ad1b?auto=format&fit=crop&w=500&q=80" alt="Child's Pose" class="pose-img"> 
+                <div class="pose-info"> 
+                    <h3>Child's Pose (Balasana)</h3> 
+                    <p>A gentle resting posture designed to target stress values and calm the nervous system.</p> 
+                    <button class="btn btn-secondary learn-more-btn" data-pose="balasana">Learn More</button> 
+                </div> 
+            </div> 
+ 
+            <div class="pose-card"> 
+                <img src="/static/Cobra Pose (Bhujangasana).jpg" alt="Cobra Pose" class="pose-img"> 
+                <div class="pose-info"> 
+                    <h3>Cobra Pose (Bhujangasana)</h3> 
+                    <p>Safely expands chest spaces while minimizing lower back stiffness metrics.</p> 
+                    <button class="btn btn-secondary learn-more-btn" data-pose="cobra">Learn More</button> 
+                </div> 
+            </div> 
+ 
+            <div class="pose-card"> 
+                <img src="/static/Tree Pose (Vrikshasana).jpg" alt="Tree Pose" class="pose-img"> 
+                <div class="pose-info"> 
+                    <h3>Tree Pose (Vrikshasana)</h3> 
+                    <p>Fosters mental concentration pathways and develops structural core balancing stability.</p> 
+                    <button class="btn btn-secondary learn-more-btn" data-pose="tree">Learn More</button> 
+                </div> 
+            </div> 
+ 
+            <div class="pose-card"> 
+                <img src="https://images.unsplash.com/photo-1603988363607-e1e4a66962c6?auto=format&fit=crop&w=500&q=80" alt="Warrior I" class="pose-img"> 
+                <div class="pose-info"> 
+                    <h3>Warrior I (Virabhadrasana I)</h3> 
+                    <p>Strengthens shoulders, open hip joints, and tests overall lower extremities.</p> 
+                    <button class="btn btn-secondary learn-more-btn" data-pose="warrior1">Learn More</button> 
+                </div> 
+            </div> 
+ 
+            <div class="pose-card"> 
+                <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=500&q=80" alt="Warrior II" class="pose-img"> 
+                <div class="pose-info"> 
+                    <h3>Warrior II (Virabhadrasana II)</h3> 
+                    <p>Improves physiological focus while opening up thighs, hips, and torso sections.</p> 
+                    <button class="btn btn-secondary learn-more-btn" data-pose="warrior2">Learn More</button> 
+                </div> 
+            </div> 
+ 
+            <div class="pose-card"> 
+                <img src="https://images.unsplash.com/photo-1545205597-3d9d02c29597?auto=format&fit=crop&w=500&q=80" alt="Warrior III" class="pose-img"> 
+                <div class="pose-info"> 
+                    <h3>Warrior III (Virabhadrasana III)</h3> 
+                    <p>An advanced coordination balance posture that fires up back muscles and the abdominal core.</p> 
+                    <button class="btn btn-secondary learn-more-btn" data-pose="warrior3">Learn More</button> 
+                </div> 
+            </div> 
+ 
+            <div class="pose-card"> 
+                <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=500&q=80" alt="Triangle Pose" class="pose-img"> 
+                <div class="pose-info"> 
+                    <h3>Triangle Pose (Trikonasana)</h3> 
+                    <p>Stretches hamstrings and spinal zones while improving natural lung capacities.</p> 
+                    <button class="btn btn-secondary learn-more-btn" data-pose="triangle">Learn More</button> 
+                </div> 
+            </div> 
+ 
+            <div class="pose-card"> 
+                <img src="https://images.unsplash.com/photo-1599447421416-3414500d18a5?auto=format&fit=crop&w=500&q=80" alt="Bridge Pose" class="pose-img"> 
+                <div class="pose-info"> 
+                    <h3>Bridge Pose (Setu Bandhasana)</h3> 
+                    <p>Stimulates abdominal organs, minimizes anxiety, and opens up restricted chest areas.</p> 
+                    <button class="btn btn-secondary learn-more-btn" data-pose="bridge">Learn More</button> 
+                </div> 
+            </div> 
+ 
+            <div class="pose-card"> 
+                <img src="https://images.unsplash.com/photo-1562088287-bde35a1ea917?auto=format&fit=crop&w=500&q=80" alt="Cat Pose" class="pose-img"> 
+                <div class="pose-info"> 
+                    <h3>Cat Pose (Marjaryasana)</h3> 
+                    <p>Massages deep spinal discs and builds rhythmic breathing synchronicity.</p> 
+                    <button class="btn btn-secondary learn-more-btn" data-pose="cat">Learn More</button> 
+                </div> 
+            </div> 
+ 
+            <div class="pose-card"> 
+                <img src="/static/Cow Pose (Bitilasana).jpg" alt="Cow Pose" class="pose-img"> 
+                <div class="pose-info"> 
+                    <h3>Cow Pose (Bitilasana)</h3> 
+                    <p>Paired directly with Cat pose to increase organic spinal lubrication and warmth.</p> 
+                    <button class="btn btn-secondary learn-more-btn" data-pose="cow">Learn More</button> 
+                </div> 
+            </div> 
+ 
+            <div class="pose-card"> 
+                <img src="/static/Plank Pose (Phalakasana).jpg" alt="Plank Pose" class="pose-img"> 
+                <div class="pose-info"> 
+                    <h3>Plank Pose (Phalakasana)</h3> 
+                    <p>Builds complete structural upper-body fortitude, arm health, and core endurance lines.</p> 
+                    <button class="btn btn-secondary learn-more-btn" data-pose="plank">Learn More</button> 
+                </div> 
+            </div> 
+ 
+            <div class="pose-card"> 
+                <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=500&q=80" alt="Boat Pose" class="pose-img"> 
+                <div class="pose-info"> 
+                    <h3>Boat Pose (Navasana)</h3> 
+                    <p>A powerful abdominal tone catalyst that tones deep hip flexors and back lines.</p> 
+                    <button class="btn btn-secondary learn-more-btn" data-pose="boat">Learn More</button> 
+                </div> 
+            </div> 
+ 
+            <div class="pose-card"> 
+                <img src="/static/Camel Pose (Ustrasana).jpg" alt="Camel Pose" class="pose-img"> 
+                <div class="pose-info"> 
+                    <h3>Camel Pose (Ustrasana)</h3> 
+                    <p>A profound backbend that stretches throat regions, hip structures, and chest spaces.</p> 
+                    <button class="btn btn-secondary learn-more-btn" data-pose="camel">Learn More</button> 
+                </div> 
+            </div> 
+ 
+            <div class="pose-card"> 
+                <img src="/static/Bow Pose (Dhanurasana).jpg" alt="Bow Pose" class="pose-img"> 
+                <div class="pose-info"> 
+                    <h3>Bow Pose (Dhanurasana)</h3> 
+                    <p>Stretches the whole front body and increases kinetic spinal suppleness.</p> 
+                    <button class="btn btn-secondary learn-more-btn" data-pose="bow">Learn More</button> 
+                </div> 
+            </div> 
+ 
+            <div class="pose-card"> 
+                <img src="/static/Seated Forward Bend (Paschimottanasana).jpg" alt="Seated Forward Bend" class="pose-img"> 
+                <div class="pose-info"> 
+                    <h3>Seated Forward Bend (Paschimottanasana)</h3> 
+                    <p>Calms overstimulated minds and stretches lower back regions and hamstrings deeply.</p> 
+                    <button class="btn btn-secondary learn-more-btn" data-pose="forwardbend">Learn More</button> 
+                </div> 
+            </div> 
+ 
+            <div class="pose-card"> 
+                <img src="/static/Lotus Pose (Padmasana).jpg" alt="Lotus Pose" class="pose-img"> 
+                <div class="pose-info"> 
+                    <h3>Lotus Pose (Padmasana)</h3> 
+                    <p>The traditional cross-legged geometric configuration used to optimize quiet meditation.</p> 
+                    <button class="btn btn-secondary learn-more-btn" data-pose="lotus">Learn More</button> 
+                </div> 
+            </div> 
+ 
+            <div class="pose-card"> 
+                <img src="/static/Eagle Pose (Garudasana).avif" alt="Easy Pose" class="pose-img"> 
+                <div class="pose-info"> 
+                    <h3>Easy Pose (Sukhasana)</h3> 
+                    <p>An accessible structural sitting format that promotes calm breathing habits.</p> 
+                    <button class="btn btn-secondary learn-more-btn" data-pose="easy">Learn More</button> 
+                </div> 
+            </div> 
+ 
+            <div class="pose-card"> 
+                <img src="/static/Crow Pose (Bakasana).jpg" alt="Crow Pose" class="pose-img"> 
+                <div class="pose-info"> 
+                    <h3>Crow Pose (Bakasana)</h3> 
+                    <p>An arm balance mechanism designed to activate absolute core power fields.</p> 
+                    <button class="btn btn-secondary learn-more-btn" data-pose="crow">Learn More</button> 
+                </div> 
+            </div> 
+ 
+            <div class="pose-card"> 
+                <img src="/static/Chair Pose (Utkatasana).jpg" alt="Chair Pose" class="pose-img"> 
+                <div class="pose-info"> 
+                    <h3>Chair Pose (Utkatasana)</h3> 
+                    <p>Generates heat inside leg systems while strengthening ankle and shoulder boundaries.</p> 
+                    <button class="btn btn-secondary learn-more-btn" data-pose="chair">Learn More</button> 
+                </div> 
+            </div> 
+ 
+            <div class="pose-card"> 
+                <img src="/static/Fish Pose (Matsyasana).jpg" alt="Fish Pose" class="pose-img"> 
+                <div class="pose-info"> 
+                    <h3>Fish Pose (Matsyasana)</h3> 
+                    <p>Expands chest chambers and balances thoracic postural structural metrics.</p> 
+                    <button class="btn btn-secondary learn-more-btn" data-pose="fish">Learn More</button> 
+                </div> 
+            </div> 
+ 
+            <div class="pose-card"> 
+                <img src="/static/Pigeon Pose (Eka Pada Rajakapotasana).jpg" alt="Pigeon Pose" class="pose-img"> 
+                <div class="pose-info"> 
+                    <h3>Pigeon Pose (Eka Pada Rajakapotasana)</h3> 
+                    <p>An impactful, restorative hip-opening target that releases deep muscle tension.</p> 
+                    <button class="btn btn-secondary learn-more-btn" data-pose="pigeon">Learn More</button> 
+                </div> 
+            </div> 
+ 
+            <div class="pose-card"> 
+                <img src="/static/Half Moon Pose (Ardha Chandrasana).jpeg" alt="Half Moon Pose" class="pose-img"> 
+                <div class="pose-info"> 
+                    <h3>Half Moon Pose (Ardha Chandrasana)</h3> 
+                    <p>Develops lateral balance coordinates while stretching the inner groin lines.</p> 
+                    <button class="btn btn-secondary learn-more-btn" data-pose="halfmoon">Learn More</button> 
+                </div> 
+            </div> 
+ 
+            <div class="pose-card"> 
+                <img src="/static/Side Plank (Vasisthasana).jpg" alt="Side Plank" class="pose-img"> 
+                <div class="pose-info"> 
+                    <h3>Side Plank (Vasisthasana)</h3> 
+                    <p>Targets lateral body regions and strengthens wrists, arms, and obliques.</p> 
+                    <button class="btn btn-secondary learn-more-btn" data-pose="sideplank">Learn More</button> 
+                </div> 
+            </div> 
+ 
+            <div class="pose-card"> 
+                <img src="/static/Happy Baby Pose (Ananda Balasana).avif" alt="Happy Baby Pose" class="pose-img"> 
+                <div class="pose-info"> 
+                    <h3>Happy Baby Pose (Ananda Balasana)</h3> 
+                    <p>Gently realigns lower back regions and decompresses inner thigh fibers.</p> 
+                    <button class="btn btn-secondary learn-more-btn" data-pose="happybaby">Learn More</button> 
+                </div> 
+            </div> 
+ 
+            <div class="pose-card"> 
+                <img src="/static/Garland Pose (Malasana).jpg" alt="Garland Pose" class="pose-img"> 
+                <div class="pose-info"> 
+                    <h3>Garland Pose (Malasana)</h3> 
+                    <p>A deep yogic squat that improves pelvic mechanics and ankle flexion values.</p> 
+                    <button class="btn btn-secondary learn-more-btn" data-pose="garland">Learn More</button> 
+                </div> 
+            </div> 
+ 
+            <div class="pose-card"> 
+                <img src="/static/Corpse Pose (Savasana).jpg" alt="Corpse Pose" class="pose-img"> 
+                <div class="pose-info"> 
+                    <h3>Corpse Pose (Savasana)</h3> 
+                    <p>Ultimate psychological integration that yields deep cellular restoration recovery.</p> 
+                    <button class="btn btn-secondary learn-more-btn" data-pose="savasana">Learn More</button> 
+                </div> 
+            </div> 
+ 
+            <div class="pose-card"> 
+                <img src="/static/Eagle Pose (Garudasana).avif" alt="Eagle Pose" class="pose-img"> 
+                <div class="pose-info"> 
+                    <h3>Eagle Pose (Garudasana)</h3> 
+                    <p>Compresses and unlocks upper back zones while developing ankle balance focus.</p> 
+                    <button class="btn btn-secondary learn-more-btn" data-pose="eagle">Learn More</button> 
+                </div> 
+            </div> 
+ 
+            <div class="pose-card"> 
+                <img src="https://images.unsplash.com/photo-1591228127791-8e2eaef098d3?auto=format&fit=crop&w=500&q=80" alt="Wheel Pose" class="pose-img"> 
+                <div class="pose-info"> 
+                    <h3>Wheel Pose (Urdhva Dhanurasana)</h3> 
+                    <p>An advanced backbend designed to stimulate internal systems and boost vitality.</p> 
+                    <button class="btn btn-secondary learn-more-btn" data-pose="wheel">Learn More</button> 
+                </div> 
+            </div> 
+        </div> 
+    </section> 
+ 
+    <footer> 
+        <p>&copy; 2026 Ananda Yoga Guide App. Preserving Timeless Roots & Well-being.</p> 
+    </footer> 
+ 
+    <div class="modal" id="poseModal"> 
+        <div class="modal-content"> 
+            <span class="close-modal" id="closeModal">&times;</span> 
+            <h2 id="modal-title">Pose Details</h2> 
+            <div id="modal-steps"></div> 
+            <div id="modal-benefits"> 
+                <strong style="color: var(--primary-color); display: block; margin-bottom: 0.3rem;">Key Benefits Summary:</strong> 
+                <p id="modal-benefits-text" style="font-size: 0.95rem; color: var(--text-dark);"></p> 
+            </div> 
+        </div> 
+    </div> 
+ 
+    <script> 
+        const poseData = { 
+            tadasana: { 
+                title: "Mountain Pose (Tadasana)", 
+                steps: "Step 1: Stand with feet level, distributing weight across heels.\nStep 2: Fire thigh muscles and pull upward on knee structures.\nStep 3: Roll shoulders down and spin palms forward.\nStep 4: Grow long through your neck and hold alignment.", 
+                benefits: "Improves overall postural alignment, builds thigh security, and firms abdominal coordinates." 
+            }, 
+            adho: { 
+                title: "Downward Dog (Adho Mukha Svanasana)", 
+                steps: "Step 1: Start on hands and knees, shoulder-width apart.\nStep 2: Tuck toes and drive hips up toward the ceiling.\nStep 3: Drop weight back into heels and stretch hamstrings.\nStep 4: Relax neck structures entirely and press palm bases.", 
+                benefits: "Delivers deep traction lines through your spine, stretches lower limbs, and moves body circulation fields." 
+            }, 
+            balasana: { 
+                title: "Child's Pose (Balasana)", 
+                steps: "Step 1: Kneel on mat, drawing large toes into continuous contact.\nStep 2: Sink hips to heels and walk upper arms forward.\nStep 3: Lower forehead gently down to contact floor zones.\nStep 4: Release shoulder pressure values and breathe.", 
+                benefits: "Gently stretches spinal segments, dissolves pelvic compression, and quietens mental hyper-activity." 
+            }, 
+            cobra: { 
+                title: "Cobra Pose (Bhujangasana)", 
+                steps: "Step 1: Recline flat upon abdomen, extending lower legs.\nStep 2: Anchor palms alongside thoracic rib plates.\nStep 3: Inhale while gently raising upper torso areas up.\nStep 4: Keep tracking elbows close to body boundaries.", 
+                benefits: "Maximizes respiratory flexibility, builds back integrity, and decreases daily tension." 
+            }, 
+            tree: { 
+                title: "Tree Pose (Vrikshasana)", 
+                steps: "Step 1: Stand vertical, rooting balance down through left foot lines.\nStep 2: Elevate right foot to nestle upon left inner thigh zones.\nStep 3: Press palms at center chest or lift them skyward.\nStep 4: Establish focal visual locks to hold center gravity.", 
+                benefits: "Strengthens baseline ankles, stabilizes core pathways, and builds single-pointed mental concentration." 
+            }, 
+            warrior1: { 
+                title: "Warrior I (Virabhadrasana I)", 
+                steps: "Step 1: Step right leg forward into deep standard lunge lines.\nStep 2: Angle back left foot outwards near 45 degrees.\nStep 3: Squares hips forward and drop into front knee bent at 90.\nStep 4: Raise hands overhead, looking up past thumb boundaries.", 
+                benefits: "Stretches hip flexors, increases physical endurance capacities, and opens lungs." 
+            }, 
+            warrior2: { 
+                title: "Warrior II (Virabhadrasana II)", 
+                steps: "Step 1: Separate feet wide. Point right toes forward and left toes perpendicular.\nStep 2: Extend arms horizontally parallel with flooring.\nStep 3: Bend right knee deeply over right ankle joint.\nStep 4: Cast focus straight out beyond right fingertips.", 
+                benefits: "Builds deep leg muscularity, opens adductor groups, and stabilizes concentration values." 
+            }, 
+            warrior3: { 
+                title: "Warrior III (Virabhadrasana III)", 
+                steps: "Step 1: Enter standard lunge; pitch torso forward onto front foot.\nStep 2: Push up into single-leg balance while floating back leg high.\nStep 3: Extend arms straight forward to make a level line from head to heel.\nStep 4: Keep hips symmetrical facing down.", 
+                benefits: "Fires back core strings, tones gluteal structures, and demands total neuromuscular balance." 
+            }, 
+            triangle: { 
+                title: "Triangle Pose (Trikonasana)", 
+                steps: "Step 1: Set wide stance. Shift hips backward as you lean lateral over front leg.\nStep 2: Drop lower hand down to shin or floor surface.\nStep 3: Raise top hand directly upward to create vertical alignment.\nStep 4: Look up to top hand.", 
+                benefits: "Opens up restrictive lateral torso lines, stretches hamstrings, and unloads back stress." 
+            }, 
+            bridge: { 
+                title: "Bridge Pose (Setu Bandhasana)", 
+                steps: "Step 1: Lie flat on back. Place feet on floor close to hips.\nStep 2: Push into feet and lift hips upward toward the ceiling.\nStep 3: Interlace hands under your lower back and roll shoulders tight.\nStep 4: Lift chest upward toward chin.", 
+                benefits: "Safely unlocks tight chest spaces, stimulates thyroid functions, and rejuvenates heavy legs." 
+            }, 
+            cat: { 
+                title: "Cat Pose (Marjaryasana)", 
+                steps: "Step 1: Support body on all fours (tabletop posture).\nStep 2: Exhale fully while tucking chin and arching spine upward.\nStep 3: Pull navel forcefully toward spinal columns.\nStep 4: Release neck pressure completely down.", 
+                benefits: "Relieves structural stress from back spaces and initializes deep core-breath connections." 
+            }, 
+            cow: { 
+                title: "Cow Pose (Bitilasana)", 
+                steps: "Step 1: Begin on all fours with a neutral spine alignment.\nStep 2: Inhale deeply, dropping belly low while lifting sit bones.\nStep 3: Draw chest forward and look up toward ceiling lines.\nStep 4: Avoid collapsing pressure into lower neck bones.", 
+                benefits: "Warms and loosens the spinal column, massages digestive organs, and coordinates breath mechanics." 
+            }, 
+            plank: { 
+                title: "Plank Pose (Phalakasana)", 
+                steps: "Step 1: Position hands under shoulders; step feet straight back.\nStep 2: Form a straight line from crown of head down to heels.\nStep 3: Push floor away to split shoulder blade areas.\nStep 4: Pull lower belly up tight.", 
+                benefits: "Develops shoulder stability, conditions abdominal walls, and optimizes full body tension management." 
+            }, 
+            boat: { 
+                title: "Boat Pose (Navasana)", 
+                steps: "Step 1: Sit with knees bent. Lean back slightly on sit bones.\nStep 2: Float feet off floor, bringing shins up parallel to ground.\nStep 3: Straighten legs into a 'V' shape if possible.\nStep 4: Reach arms straight forward alongside outer knee spaces.", 
+                benefits: "Tones abdominal walls, tones deep hip flexor paths, and cultivates mental stamina." 
+            }, 
+            camel: { 
+                title: "Camel Pose (Ustrasana)", 
+                steps: "Step 1: Kneel with hips directly over knees, thighs perpendicular to floor.\nStep 2: Rest hands on lower back, fingers pointing downward.\nStep 3: Inhale, lift chest up, and slowly arc back.\nStep 4: Reach hands down to grasp heels if comfortable.", 
+                benefits: "Counters modern slouching patterns, stretches front core lines, and improves lung capacity." 
+            }, 
+            bow: { 
+                title: "Bow Pose (Dhanurasana)", 
+                steps: "Step 1: Recline face down on stomach. Bend knees up.\nStep 2: Reach back and firmly hold outer ankle joints.\nStep 3: Inhale, kicking legs back and up to pull chest off floor.\nStep 4: Keep gaze forward and balance on belly center.", 
+                benefits: "Massages abdominal organs, expands pectoral muscles, and strengthens posterior core muscles." 
+            }, 
+            forwardbend: { 
+                title: "Seated Forward Bend (Paschimottanasana)", 
+                steps: "Step 1: Sit tall with legs extended straight forward.\nStep 2: Inhale, extending arms up to lengthen spine.\nStep 3: Exhale, hinging forward from hips to reach towards feet.\nStep 4: Drop nose down toward knee lines.", 
+                benefits: "Stretches hamstrings, decompresses spinal vertebrae, and down-regulates hyperactive nervous systems." 
+            }, 
+            lotus: { 
+                title: "Lotus Pose (Padmasana)", 
+                steps: "Step 1: Sit cross-legged. Lift right foot and slide onto left thigh crease.\nStep 2: Carefully lift left foot over right shin into right thigh crease.\nStep 3: Rest hands on knees in mudra posture.\nStep 4: Sit tall with crown reaching skyward.", 
+                benefits: "Locks body geometry for deep meditation, opens hip hinges, and anchors focus." 
+            }, 
+            easy: { 
+                title: "Easy Pose (Sukhasana)", 
+                steps: "Step 1: Cross shins comfortably to sit down easily.\nStep 2: Distribute body weight evenly on sit bones.\nStep 3: Rest hands down on knee joints.\nStep 4: Elongate spine to maintain effortless, steady posture.", 
+                benefits: "Reduces anxiety values, opens hips gently, and serves as an excellent starting pranayama base." 
+            }, 
+            crow: { 
+                title: "Crow Pose (Bakasana)", 
+                steps: "Step 1: Squat low. Press palms flat down, shoulder-distance apart.\nStep 2: Place knees high up onto the backs of your upper arms.\nStep 3: Shift weight forward into hands, lifting heels up.\nStep 4: Float toes off floor and engage inner core muscles.", 
+                benefits: "Builds immense wrist and forearm strength, challenges spatial confidence, and fires inner core stability." 
+            }, 
+            chair: { 
+                title: "Chair Pose (Utkatasana)", 
+                steps: "Step 1: Stand tall. Inhale and reach arms straight overhead.\nStep 2: Exhale, bending knees and sinking hips back as if sitting down.\nStep 3: Keep chest high and weight anchored in heels.\nStep 4: Pull lower belly up and in.", 
+                benefits: "Heats lower extremities, builds quad and gluteal endurance, and opens shoulder joints." 
+            }, 
+            fish: { 
+                title: "Fish Pose (Matsyasana)", 
+                steps: "Step 1: Lie on back. Propose forearms flat under lower glute structures.\nStep 2: Push into elbows to lift head and chest off floor.\nStep 3: Arc upper spine back and gently rest crown of head on floor.\nStep 4: Breathe into expanded upper ribs.", 
+                benefits: "Relieves throat tension, opens up tight respiratory paths, and expands intercostal spaces." 
+            }, 
+            pigeon: { 
+                title: "Pigeon Pose (Eka Pada Rajakapotasana)", 
+                steps: "Step 1: From all fours, slide right knee forward behind right wrist.\nStep 2: Extend left leg straight back behind you.\nStep 3: Square hips toward floor; walk hands forward if comfortable.\nStep 4: Lower chest over front leg.", 
+                benefits: "Targeted release for deep gluteal and piriformis fibers, minimizing sciatic nerve compression." 
+            }, 
+            halfmoon: { 
+                title: "Half Moon Pose (Ardha Chandrasana)", 
+                steps: "Step 1: From Triangle pose, place right hand ahead of right foot.\nStep 2: Lift left leg straight up parallel to floor.\nStep 3: Stack left hip precisely over right hip.\nStep 4: Raise left arm high and shift gaze upward.", 
+                benefits: "Builds standing balance, strengthens ankles, and stretches lateral hamstrings." 
+            }, 
+            sideplank: { 
+                title: "Side Plank (Vasisthasana)", 
+                steps: "Step 1: Move from standard plank. Shift weight onto outer right foot edge.\nStep 2: Stack left foot over right; raise left arm vertically.\nStep 3: Lift lower hip high away from floor surfaces.\nStep 4: Stabilize shoulder alignment.", 
+                benefits: "Corrects oblique imbalances, builds wrist and shoulder strength, and trains full-body line control." 
+            }, 
+            happybaby: { 
+                title: "Happy Baby Pose (Ananda Balasana)", 
+                steps: "Step 1: Lie flat on back. Pull knees up to armpits.\nStep 2: Grasp outer edges of feet with hands.\nStep 3: Stack ankles over knees, pulling feet down towards floor.\nStep 4: Flatten tailbone onto mat surface.", 
+                benefits: "Gently stretches inner groin pathways, decompresses lower back, and calms emotional stress." 
+            }, 
+            garland: { 
+                title: "Garland Pose (Malasana)", 
+                steps: "Step 1: Separate feet slightly wider than hips, toes pointing out.\nStep 2: Lower hips deep into squat line.\nStep 3: Press elbows against inner knees, drawing hands to heart.\nStep 4: Lift chest tall and extend spine.", 
+                benefits: "Aids pelvic health, improves lower limb flexibility, and stimulates natural digestion patterns." 
+            }, 
+            savasana: { 
+                title: "Corpse Pose (Savasana)", 
+                steps: "Step 1: Recline flat upon back, spreading limbs comfortably wide.\nStep 2: Allow toes to flop outward and release palm lines up.\nStep 3: Close eyes and drop intentional breath regulation.\nStep 4: Relax every muscle group into floor structures.", 
+                benefits: "Lowers heart rate metrics, synthesizes post-practice benefits, and dissolves systemic fatigue fields." 
+            }, 
+            eagle: { 
+                title: "Eagle Pose (Garudasana)", 
+                steps: "Step 1: Stand tall. Bend knees; wrap right thigh over left thigh.\nStep 2: Hook right foot behind left calf muscle if possible.\nStep 3: Wrap right elbow under left elbow, pressing palms together.\nStep 4: Lift elbows up to shoulder height and drop hips low.", 
+                benefits: "Improves circulation to major joints, unlocks upper back constraints, and enhances mental balance." 
+            }, 
+            wheel: { 
+                title: "Wheel Pose (Urdhva Dhanurasana)", 
+                steps: "Step 1: Lie on back. Place feet near hips and palms by ears, fingers pointing to shoulders.\nStep 2: Push into feet and hands to lift onto the crown of head.\nStep 3: Straighten arms and legs to lift body fully into wheel shape.\nStep 4: Breathe deeply in backbend posture.", 
+                benefits: "Provides an immense energy boost, strengthens arms, legs, and spine, and opens the chest." 
+            } 
+        }; 
+ 
+        // DOM Controller Elements 
+        const mobileMenu = document.getElementById('mobile-menu'); 
+        const navLinks = document.querySelector('.nav-links'); 
+        const modal = document.getElementById('poseModal'); 
+        const closeModalBtn = document.getElementById('closeModal'); 
+ 
+        // Mobile Hamburger Switch 
+        mobileMenu.addEventListener('click', () => { 
+            navLinks.classList.toggle('active'); 
+            mobileMenu.querySelector('i').classList.toggle('fa-bars'); 
+            mobileMenu.querySelector('i').classList.toggle('fa-xmark'); 
+        }); 
+ 
+        // Modal Event Listeners 
+        document.querySelectorAll('.learn-more-btn').forEach(button => { 
+            button.addEventListener('click', (e) => { 
+                const key = e.target.getAttribute('data-pose'); 
+                const data = poseData[key]; 
+                 
+                if (data) { 
+                    document.getElementById('modal-title').innerText = data.title; 
+                    document.getElementById('modal-steps').innerText = data.steps; 
+                    document.getElementById('modal-benefits-text').innerText = data.benefits; 
+                    modal.style.display = 'flex'; 
+                } 
+            }); 
+        }); 
+ 
+        closeModalBtn.addEventListener('click', () => { modal.style.display = 'none'; }); 
+        window.addEventListener('click', (e) => { if (e.target === modal) modal.style.display = 'none'; }); 
+    </script> 
+    !-- GOOGLE TRANSLATE -->
+
+    <script>
+        function googleTranslateElementInit() {
+
+            new google.translate.TranslateElement(
+            {
+                pageLanguage:'en',
+                includedLanguages:'en,ta,hi,fr,es,de,ja,zh-CN',
+                layout:google.translate.TranslateElement.InlineLayout.SIMPLE
+            },
+            'google_translate_element'
+            );
+
+        }
+    </script>
+    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    
+
+</body> 
+</html>

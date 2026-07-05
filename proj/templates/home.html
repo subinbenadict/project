@@ -1,0 +1,441 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Ananda - Home (What is Yoga & History)</title> 
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght=0,400..700;1,400..700&family=Poppins:wght=300;400;600&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> 
+     
+    <style> 
+        /* --- CSS VARIABLES & RESET --- */ 
+        :root { 
+            --primary-color: #4A6B53; 
+            --primary-light: #EBF2EE; 
+            --accent-color: #8AA891; 
+            --text-dark: #2C3E35; 
+            --text-light: #607266; 
+            --white: #FFFFFF; 
+            --background: #F7FAF8; 
+            --transition: all 0.3s ease; 
+        } 
+ 
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+            font-family: 'Poppins', sans-serif; 
+        } 
+ 
+        html { 
+            scroll-behavior: smooth; 
+        } 
+ 
+        body { 
+            background-color: var(--background); 
+            color: var(--text-dark); 
+            line-height: 1.6; 
+            padding-top: 80px; /* Space for fixed header */
+        } 
+ 
+        h1, h2, h3, h4, .logo { 
+            font-family: 'Playfair Display', serif; 
+        } 
+ 
+        /* --- NAVIGATION --- */ 
+        header { 
+            position: fixed; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            background-color: rgba(255, 255, 255, 0.95); 
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05); 
+            z-index: 1000; 
+        } 
+ 
+        .navbar { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            padding: 1rem 2rem; 
+        } 
+ 
+        .logo { 
+            font-size: 1.8rem; 
+            font-weight: 700; 
+            color: var(--primary-color); 
+            text-decoration: none; 
+            display: flex; 
+            align-items: center; 
+            gap: 10px; 
+        } 
+ 
+        .nav-links { 
+            display: flex; 
+            list-style: none; 
+            gap: 2rem; 
+        } 
+
+        .nav-links li {
+            list-style: none;
+        }
+ 
+        .nav-links a { 
+            text-decoration: none; 
+            color: var(--text-dark); 
+            font-weight: 600; 
+            font-size: 0.95rem; 
+            transition: var(--transition); 
+        } 
+ 
+        .nav-links a:hover, .nav-links a.active { 
+            color: var(--primary-color); 
+        } 
+ 
+        .menu-toggle { 
+            display: none; 
+            font-size: 1.5rem; 
+            cursor: pointer; 
+            color: var(--primary-color); 
+        } 
+ 
+        /* --- COMMON SECTION STYLES --- */ 
+        section { 
+            padding: 5rem 2rem; 
+            max-width: 1200px; 
+            margin: 0 auto; 
+        } 
+ 
+        .section-title { 
+            text-align: center; 
+            font-size: 2.8rem; 
+            color: var(--primary-color); 
+            margin-bottom: 1rem; 
+            position: relative; 
+        } 
+ 
+        .section-title::after { 
+            content: ''; 
+            display: block; 
+            width: 60px; 
+            height: 3px; 
+            background-color: var(--accent-color); 
+            margin: 0.5rem auto 0 auto; 
+            border-radius: 2px; 
+        } 
+ 
+        .section-subtitle { 
+            text-align: center; 
+            color: var(--text-light); 
+            margin-bottom: 4rem; 
+            max-width: 700px; 
+            margin-left: auto; 
+            margin-right: auto; 
+            font-size: 1.1rem;
+        } 
+ 
+        .btn { 
+            display: inline-block; 
+            background-color: var(--primary-color); 
+            color: var(--white); 
+            padding: 0.9rem 2.2rem; 
+            border: none; 
+            border-radius: 30px; 
+            cursor: pointer; 
+            font-weight: 600; 
+            text-decoration: none; 
+            transition: var(--transition); 
+            box-shadow: 0 4px 15px rgba(74, 107, 83, 0.2); 
+        } 
+ 
+        .btn:hover { 
+            background-color: var(--accent-color); 
+            transform: translateY(-2px); 
+            box-shadow: 0 6px 20px rgba(74, 107, 83, 0.3); 
+        } 
+ 
+        /* --- HERO SECTION --- */ 
+        #hero { 
+            min-height: 75vh; 
+            display: flex; 
+            align-items: center; 
+            background: linear-gradient(rgba(247, 250, 248, 0.80), rgba(247, 250, 248, 0.85)),  
+            url('https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover; 
+            margin-bottom: 2rem;
+        } 
+ 
+        .hero-content { 
+            max-width: 700px; 
+            animation: fadeIn 1s ease-out; 
+        } 
+ 
+        .hero-content h1 { 
+            font-size: 3.8rem; 
+            color: var(--primary-color); 
+            line-height: 1.2; 
+            margin-bottom: 1.5rem; 
+        } 
+ 
+        .hero-content p { 
+            font-size: 1.2rem; 
+            color: var(--text-light); 
+            margin-bottom: 2.5rem; 
+        } 
+ 
+        /* --- CONTENT WRAPPERS --- */ 
+        .content-block {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+            margin-bottom: 6rem;
+        }
+
+        .content-block.reverse {
+            flex-direction: row-reverse;
+        }
+
+        .content-text {
+            flex: 1;
+        }
+
+        .content-text h3 {
+            font-size: 2.2rem;
+            color: var(--primary-color);
+            margin-bottom: 1.2rem;
+        }
+
+        .content-text p {
+            color: var(--text-light);
+            margin-bottom: 1.2rem;
+            font-size: 1.05rem;
+            text-align: justify;
+        }
+
+        .content-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .content-image img {
+            width: 100%;
+            max-width: 500px;
+            height: 380px;
+            object-fit: cover;
+            border-radius: 25px;
+            box-shadow: 0 15px 35px rgba(44, 62, 53, 0.1);
+        }
+
+        /* --- TIMELINE / HISTORY HIGHLIGHTS --- */
+        .history-timeline {
+            background-color: var(--white);
+            padding: 3.5rem;
+            border-radius: 20px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.02);
+            border: 1px solid var(--primary-light);
+            margin-top: 3rem;
+        }
+
+        .history-timeline h4 {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .timeline-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2rem;
+        }
+
+        .timeline-node {
+            background-color: var(--background);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border-top: 4px solid var(--primary-color);
+        }
+
+        .timeline-node .era {
+            font-weight: 600;
+            color: var(--primary-color);
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .timeline-node p {
+            font-size: 0.95rem;
+            color: var(--text-light);
+        }
+
+        /* --- FOOTER --- */ 
+        footer { 
+            background-color: var(--primary-color); 
+            color: var(--white); 
+            text-align: center; 
+            padding: 2rem; 
+            font-size: 0.9rem; 
+        } 
+ 
+        /* --- ANIMATIONS --- */ 
+        @keyframes fadeIn { 
+            from { opacity: 0; transform: translateY(20px); } 
+            to { opacity: 1; transform: translateY(0); } 
+        } 
+ 
+        /* --- RESPONSIVE DESIGN --- */ 
+        @media (max-width: 968px) { 
+            .content-block, .content-block.reverse { 
+                flex-direction: column; 
+                gap: 2rem;
+            } 
+            .content-image img {
+                height: 280px;
+            }
+        } 
+ 
+        @media (max-width: 768px) { 
+            .nav-links { 
+                display: none; 
+                flex-direction: column; 
+                position: absolute; 
+                top: 100%; 
+                left: 0; 
+                width: 100%; 
+                background-color: var(--white); 
+                padding: 1.5rem; 
+                box-shadow: 0 5px 10px rgba(0,0,0,0.05); 
+                text-align: center; 
+                gap: 1.2rem; 
+                z-index: 999; 
+            } 
+ 
+            .nav-links.active { 
+                display: flex; 
+            } 
+ 
+            .menu-toggle { 
+                display: block; 
+            } 
+ 
+            .hero-content h1 { 
+                font-size: 2.8rem; 
+            } 
+        } 
+    </style> 
+</head> 
+<body> 
+ 
+    <header> 
+        <nav class="navbar"> 
+            <a href="home.html" class="logo"><i class="fa-solid fa-seedling"></i> Ananda</a> 
+            <div class="menu-toggle" id="mobile-menu"> 
+                <i class="fa-solid fa-bars"></i> 
+            </div> 
+            <ul class="nav-links">
+                <li><a href="/home" class="active">Home</a></li>
+                <li><a href="/guide">Yoga Guide</a></li>
+                <li><a href="/benefits" >Benefits</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/contact">Contact</a></li>
+            </ul>
+            <div id="google_translate_element"></div>
+        </nav> 
+    </header> 
+ 
+    <section id="hero"> 
+        <div class="hero-content"> 
+            <h1>The Journey Inside</h1> 
+            <p>Welcome to Ananda. Before stepping onto the mat, understand the timeless essence, historical depths, and global philosophy behind this ancient life science.</p> 
+            <a href="/guide" class="btn">Explore Poses</a> 
+        </div> 
+    </section> 
+ 
+    <section id="yoga-knowledge">
+        <h2 class="section-title">Discovering Yoga</h2>
+        <p class="section-subtitle">Yoga is not just physical exercise; it is an integrated lifestyle dedicated to understanding the true nature of mind, consciousness, and physical anatomy.</p>
+
+        <div class="content-block">
+            <div class="content-text">
+                <h3>What is Yoga?</h3>
+                <p>The word <strong>"Yoga"</strong> is derived from the Sanskrit root word <em>"Yuj"</em>, which translates directly to "to yoke", "to bind", or "to unite". At its core, yoga represents the profound union of individual consciousness with the absolute universal consciousness.</p>
+                <p>Yoga is a holistic blueprint spanning physical posture (Asana), voluntary breath regulation (Pranayama), structural mental withdrawal (Pratyahara), concentration (Dharana), and ultimate meditative stillness (Dhyana). Rather than simply flexibility training, it acts as an ancient psychological and physiological strategy for calming structural fluctuations of the mind.</p>
+            </div>
+            <div class="content-image">
+                <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=600&q=80" alt="What is Yoga">
+            </div>
+        </div>
+
+        <div class="content-block reverse">
+            <div class="content-text">
+                <h3>The History of Yoga</h3>
+                <p>The timeless tradition of Yoga originated in India over 5,000 years ago. Long before being transcribed into physical texts, its secrets were shared via the <em>Guru-Shishya Parampara</em>—an intimate, oral system of transmission from master to disciple.</p>
+                <p>The historical baseline of Yoga can be categorized cleanly into four foundational chronological frameworks: Pre-Classical, Classical, Post-Classical, and Modern. From the sacred verses of the Rig Veda to the rigorous systemization formulated by Sage Patanjali, Yoga has constantly shifted to aid humans in achieving mental stability, clarity, and physical equilibrium.</p>
+            </div>
+            <div class="content-image">
+                <img src="https://images.unsplash.com/photo-1599447421416-3414500d18a5?auto=format&fit=crop&w=600&q=80" alt="History of Yoga">
+            </div>
+        </div>
+
+        <div class="history-timeline">
+            <h4>Chronological Evolution of Yoga</h4>
+            <div class="timeline-grid">
+                <div class="timeline-node">
+                    <span class="era">Pre-Classical Yoga</span>
+                    <p>Developed by the Indus-Sarasvati civilization in Northern India over 5,000 years ago. First references appeared inside the ancient holy texts known as Vedas and Upanishads.</p>
+                </div>
+                <div class="timeline-node">
+                    <span class="era">Classical Yoga</span>
+                    <p>Defined by Sage Patanjali's "Yoga Sutras" around the 2nd century BCE. This laid out the structural "Eight Limbs of Yoga" (Ashtanga Yoga), highlighting the journey to mental mastery.</p>
+                </div>
+                <div class="timeline-node">
+                    <span class="era">Post-Classical Yoga</span>
+                    <p>Sages shifted emphasis from strict internal contemplation to embracing physical body preservation. This created "Hatha Yoga" systems, popularizing standard active asanas used today.</p>
+                </div>
+                <div class="timeline-node">
+                    <span class="era">Modern Yoga</span>
+                    <p>Began in the late 19th and early 20th centuries as masters traveled westward. Yoga evolved rapidly into a highly celebrated global framework for comprehensive health and wellness.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer> 
+        <p>&copy; 2026 Ananda Yoga Guide App. Preserving Timeless Roots & Well-being.</p> 
+    </footer> 
+ 
+    <script> 
+        // DOM elements 
+        const mobileMenu = document.getElementById('mobile-menu'); 
+        const navLinks = document.querySelector('.nav-links'); 
+ 
+        // Mobile Hamburger Toggle 
+        mobileMenu.addEventListener('click', () => { 
+            navLinks.classList.toggle('active'); 
+            mobileMenu.querySelector('i').classList.toggle('fa-bars'); 
+            mobileMenu.querySelector('i').classList.toggle('fa-xmark'); 
+        }); 
+    </script> 
+
+    <script>
+        function googleTranslateElementInit() {
+
+            new google.translate.TranslateElement(
+            {
+                pageLanguage:'en',
+                includedLanguages:'en,ta,hi,fr,es,de,ja,zh-CN',
+                layout:google.translate.TranslateElement.InlineLayout.SIMPLE
+            },
+            'google_translate_element'
+            );
+
+        }
+    </script>
+    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    
+
+</body> 
+</html>

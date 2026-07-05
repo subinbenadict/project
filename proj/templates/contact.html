@@ -1,0 +1,431 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Ananda - Contact Us</title> 
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght=0,400..700;1,400..700&family=Poppins:wght=300;400;600&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> 
+     
+    <style> 
+        /* --- CSS VARIABLES & RESET --- */ 
+        :root { 
+            --primary-color: #4A6B53; 
+            --primary-light: #EBF2EE; 
+            --accent-color: #8AA891; 
+            --text-dark: #2C3E35; 
+            --text-light: #607266; 
+            --white: #FFFFFF; 
+            --background: #F7FAF8; 
+            --transition: all 0.3s ease; 
+        } 
+ 
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+            font-family: 'Poppins', sans-serif; 
+        } 
+ 
+        html { 
+            scroll-behavior: smooth; 
+        } 
+ 
+        body { 
+            background-color: var(--background); 
+            color: var(--text-dark); 
+            line-height: 1.6; 
+            padding-top: 80px; 
+        } 
+ 
+        h1, h2, h3, .logo { 
+            font-family: 'Playfair Display', serif; 
+        } 
+ 
+        /* --- NAVIGATION --- */ 
+        header { 
+            position: fixed; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            background-color: rgba(255, 255, 255, 0.95); 
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05); 
+            z-index: 1000; 
+        } 
+ 
+        .navbar { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            padding: 1rem 2rem; 
+        } 
+ 
+        .logo { 
+            font-size: 1.8rem; 
+            font-weight: 700; 
+            color: var(--primary-color); 
+            text-decoration: none; 
+            display: flex; 
+            align-items: center; 
+            gap: 10px; 
+        } 
+ 
+        .nav-links { 
+            display: flex; 
+            list-style: none; 
+            gap: 2rem; 
+        } 
+        .nav-links li {
+            list-style: none;
+        }
+
+        .nav-links a { 
+            text-decoration: none; 
+            color: var(--text-dark); 
+            font-weight: 600; 
+            font-size: 0.95rem; 
+            transition: var(--transition); 
+        } 
+ 
+        .nav-links a:hover, .nav-links a.active { 
+            color: var(--primary-color); 
+        } 
+ 
+        .menu-toggle { 
+            display: none; 
+            font-size: 1.5rem; 
+            cursor: pointer; 
+            color: var(--primary-color); 
+        } 
+ 
+        /* --- COMMON SECTION STYLES --- */ 
+        section { 
+            padding: 4rem 2rem; 
+            max-width: 1200px; 
+            margin: 0 auto; 
+        } 
+ 
+        .section-title { 
+            text-align: center; 
+            font-size: 2.5rem; 
+            color: var(--primary-color); 
+            margin-bottom: 1rem; 
+            position: relative; 
+        } 
+ 
+        .section-title::after { 
+            content: ''; 
+            display: block; 
+            width: 50px; 
+            height: 3px; 
+            background-color: var(--accent-color); 
+            margin: 0.5rem auto 0 auto; 
+            border-radius: 2px; 
+        } 
+ 
+        .section-subtitle { 
+            text-align: center; 
+            color: var(--text-light); 
+            margin-bottom: 4rem; 
+            max-width: 600px; 
+            margin-left: auto; 
+            margin-right: auto; 
+        } 
+ 
+        /* --- CONTACT WRAPPER --- */ 
+        .contact-wrapper { 
+            display: flex; 
+            gap: 4rem; 
+            align-items: flex-start; 
+        } 
+ 
+        /* --- INFO SIDE --- */ 
+        .contact-info-side { 
+            flex: 1; 
+            display: flex; 
+            flex-direction: column; 
+            gap: 2rem; 
+        } 
+ 
+        .contact-card { 
+            background-color: var(--white); 
+            padding: 2rem; 
+            border-radius: 15px; 
+            border: 1px solid var(--primary-light); 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.02); 
+            display: flex; 
+            align-items: center; 
+            gap: 1.5rem; 
+        } 
+ 
+        .contact-icon { 
+            width: 50px; 
+            height: 50px; 
+            background-color: var(--primary-light); 
+            color: var(--primary-color); 
+            border-radius: 50%; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            font-size: 1.3rem; 
+            flex-shrink: 0; 
+        } 
+ 
+        .contact-details h4 { 
+            font-size: 1.15rem; 
+            color: var(--primary-color); 
+            margin-bottom: 0.2rem; 
+        } 
+ 
+        .contact-details p { 
+            color: var(--text-light); 
+            font-size: 0.95rem; 
+        } 
+ 
+        /* --- FORM SIDE --- */ 
+        .contact-form-side { 
+            flex: 1.5; 
+            background-color: var(--white); 
+            padding: 3rem; 
+            border-radius: 20px; 
+            border: 1px solid var(--primary-light); 
+            box-shadow: 0 8px 30px rgba(44, 62, 53, 0.04); 
+        } 
+ 
+        .contact-form { 
+            display: flex; 
+            flex-direction: column; 
+            gap: 1.5rem; 
+        } 
+ 
+        .form-row { 
+            display: flex; 
+            gap: 1.5rem; 
+        } 
+ 
+        .form-group { 
+            display: flex; 
+            flex-direction: column; 
+            gap: 0.5rem; 
+            flex: 1; 
+        } 
+ 
+        .form-group label { 
+            font-size: 0.9rem; 
+            font-weight: 600; 
+            color: var(--text-dark); 
+        } 
+ 
+        .form-group input, .form-group textarea { 
+            width: 100%; 
+            padding: 0.8rem 1rem; 
+            border: 1px solid var(--accent-color); 
+            border-radius: 10px; 
+            background-color: var(--background); 
+            font-size: 0.95rem; 
+            outline: none; 
+            transition: var(--transition); 
+        } 
+ 
+        .form-group textarea { 
+            resize: none; 
+            height: 140px; 
+        } 
+ 
+        .form-group input:focus, .form-group textarea:focus { 
+            border-color: var(--primary-color); 
+            background-color: var(--white); 
+            box-shadow: 0 0 0 3px rgba(74, 107, 83, 0.15); 
+        } 
+ 
+        .btn-submit { 
+            align-self: flex-start; 
+            background-color: var(--primary-color); 
+            color: var(--white); 
+            padding: 0.9rem 2.5rem; 
+            border: none; 
+            border-radius: 30px; 
+            cursor: pointer; 
+            font-weight: 600; 
+            font-size: 1rem; 
+            transition: var(--transition); 
+            box-shadow: 0 4px 15px rgba(74, 107, 83, 0.2); 
+        } 
+ 
+        .btn-submit:hover { 
+            background-color: var(--accent-color); 
+            transform: translateY(-2px); 
+            box-shadow: 0 6px 20px rgba(74, 107, 83, 0.3); 
+        } 
+ 
+        /* --- FOOTER --- */ 
+        footer { 
+            background-color: var(--primary-color); 
+            color: var(--white); 
+            text-align: center; 
+            padding: 2rem; 
+            margin-top: 5rem; 
+            font-size: 0.9rem; 
+        } 
+ 
+        /* --- RESPONSIVE DESIGN --- */ 
+        @media (max-width: 968px) { 
+            .contact-wrapper { 
+                flex-direction: column; 
+                gap: 3rem; 
+            } 
+            .contact-info-side, .contact-form-side { 
+                width: 100%; 
+            } 
+        } 
+ 
+        @media (max-width: 768px) { 
+            .nav-links { 
+                display: none; 
+                flex-direction: column; 
+                position: absolute; 
+                top: 100%; 
+                left: 0; 
+                width: 100%; 
+                background-color: var(--white); 
+                padding: 1.5rem; 
+                box-shadow: 0 5px 10px rgba(0,0,0,0.05); 
+                text-align: center; 
+                gap: 1.2rem; 
+                z-index: 999; 
+            } 
+            .nav-links.active { display: flex; } 
+            .menu-toggle { display: block; } 
+            .form-row { flex-direction: column; gap: 1.5rem; } 
+        } 
+    </style> 
+</head> 
+<body> 
+ 
+    <header> 
+        <nav class="navbar"> 
+            <a href="home.html" class="logo"><i class="fa-solid fa-seedling"></i> Ananda</a> 
+            <div class="menu-toggle" id="mobile-menu"> 
+                <i class="fa-solid fa-bars"></i> 
+            </div> 
+           <ul class="nav-links">
+                <li><a href="/home">Home</a></li>
+                 <li><a href="/guide">Yoga Guide</a></li>
+                <li><a href="/benefits" >Benefits</a></li>
+                 <li><a href="/about">About</a></li>
+                <li><a href="/contact" class="active">Contact</a></li>
+            </ul>
+            <div id="google_translate_element"></div>
+        </nav> 
+    </header> 
+ 
+    <section id="contact-section"> 
+        <h2 class="section-title">Connect With Us</h2> 
+        <p class="section-subtitle">Have questions about specific practices or alignment principles? Send us a message and begin your dialogue towards balance.</p> 
+ 
+        <div class="contact-wrapper"> 
+             
+            <div class="contact-info-side"> 
+                <div class="contact-card"> 
+                    <div class="contact-icon"><i class="fa-solid fa-location-dot"></i></div> 
+                    <div class="contact-details"> 
+                        <h4>Our Sanctuary</h4> 
+                        <p>108 Shanti Lane, Serenity Valley, CA 94025</p> 
+                    </div> 
+                </div> 
+ 
+                <div class="contact-card"> 
+                    <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div> 
+                    <div class="contact-details"> 
+                        <h4>Digital Support</h4> 
+                        <p>connect@anandayoguide.com</p> 
+                    </div> 
+                </div> 
+ 
+                <div class="contact-card"> 
+                    <div class="contact-icon"><i class="fa-solid fa-clock"></i></div> 
+                    <div class="contact-details"> 
+                        <h4>Mindful Hours</h4> 
+                        <p>Mon - Fri: 6:00 AM - 7:00 PM PST</p> 
+                    </div> 
+                </div> 
+            </div> 
+ 
+            <div class="contact-form-side"> 
+                <form class="contact-form" id="contactForm" action="/contact" method="POST"> 
+                     
+                    <div class="form-row"> 
+                        <div class="form-group"> 
+                            <label for="userName">Your Name</label> 
+                            <input type="text" id="userName" required placeholder="John Doe" name="name"> 
+                        </div> 
+                        <div class="form-group"> 
+                            <label for="userEmail">Email Address</label> 
+                            <input type="email" id="userEmail" required placeholder="john@domain.com" name="email"> 
+                        </div> 
+                    </div> 
+ 
+                    <div class="form-group"> 
+                        <label for="formSubject">Subject</label> 
+                        <input type="text" id="formSubject" required placeholder="Pose adjustment inquiry, feedback, etc." name="subject"> 
+                    </div> 
+ 
+                    <div class="form-group"> 
+                        <label for="formMessage">Your Message</label> 
+                        <textarea id="formMessage" required placeholder="Type your thoughts here..." name="message"></textarea> 
+                    </div> 
+ 
+                    <button type="submit" class="btn-submit">Send Message</button> 
+                </form> 
+            </div> 
+ 
+        </div> 
+    </section> 
+ 
+    <footer> 
+        <p>&copy; 2026 Ananda Yoga Guide App. Preserving Timeless Roots & Well-being.</p> 
+    </footer> 
+ 
+    <script>
+        // Mobile Navigation Toggle 
+        const mobileMenu = document.getElementById('mobile-menu'); 
+        const navLinks = document.querySelector('.nav-links'); 
+ 
+        mobileMenu.addEventListener('click', () => { 
+            navLinks.classList.toggle('active'); 
+            mobileMenu.querySelector('i').classList.toggle('fa-bars'); 
+            mobileMenu.querySelector('i').classList.toggle('fa-xmark'); 
+        }); 
+ 
+        // Form Submission Handler 
+        const contactForm = document.getElementById('contactForm'); 
+        contactForm.addEventListener('submit', (e) => { 
+            // REMOVED: e.preventDefault(); <-- Removing this lets data submit to Python!
+ 
+            const name = document.getElementById('userName').value; 
+            alert(`Thank you, ${name}! Your message is being processed...`); 
+        }); 
+    </script>
+    !-- GOOGLE TRANSLATE -->
+
+    <script>
+        function googleTranslateElementInit() {
+
+            new google.translate.TranslateElement(
+            {
+                pageLanguage:'en',
+                includedLanguages:'en,ta,hi,fr,es,de,ja,zh-CN',
+                layout:google.translate.TranslateElement.InlineLayout.SIMPLE
+            },
+            'google_translate_element'
+            );
+
+        }
+    </script>
+    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    
+
+</body> 
+</html>

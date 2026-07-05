@@ -1,0 +1,463 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Ananda - Benefits of Yoga</title> 
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght=0,400..700;1,400..700&family=Poppins:wght=300;400;600&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> 
+     
+    <style> 
+        /* --- CSS VARIABLES & RESET --- */ 
+        :root { 
+            --primary-color: #4A6B53; 
+            --primary-light: #EBF2EE; 
+            --accent-color: #8AA891; 
+            --text-dark: #2C3E35; 
+            --text-light: #607266; 
+            --white: #FFFFFF; 
+            --background: #F7FAF8; 
+            --transition: all 0.3s ease; 
+        } 
+ 
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+            font-family: 'Poppins', sans-serif; 
+        } 
+ 
+        html { 
+            scroll-behavior: smooth; 
+        } 
+ 
+        body { 
+            background-color: var(--background); 
+            color: var(--text-dark); 
+            line-height: 1.6; 
+            padding-top: 80px; 
+        } 
+ 
+        h1, h2, h3, h4, .logo { 
+            font-family: 'Playfair Display', serif; 
+        } 
+ 
+        /* --- NAVIGATION --- */ 
+        header { 
+            position: fixed; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            background-color: rgba(255, 255, 255, 0.95); 
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05); 
+            z-index: 1000; 
+        } 
+ 
+        .navbar { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            padding: 1rem 2rem; 
+        } 
+ 
+        .logo { 
+            font-size: 1.8rem; 
+            font-weight: 700; 
+            color: var(--primary-color); 
+            text-decoration: none; 
+            display: flex; 
+            align-items: center; 
+            gap: 10px; 
+        } 
+ 
+        .nav-links { 
+            display: flex; 
+            list-style: none; 
+            gap: 2rem; 
+        } 
+ 
+        .nav-links a { 
+            text-decoration: none; 
+            color: var(--text-dark); 
+            font-weight: 600; 
+            font-size: 0.95rem; 
+            transition: var(--transition); 
+        } 
+        .nav-links li {
+            list-style: none;
+        }
+ 
+        .nav-links a:hover, .nav-links a.active { 
+            color: var(--primary-color); 
+        } 
+ 
+        .menu-toggle { 
+            display: none; 
+            font-size: 1.5rem; 
+            cursor: pointer; 
+            color: var(--primary-color); 
+        } 
+ 
+        /* --- COMMON SECTION STYLES --- */ 
+        section { 
+            padding: 4rem 2rem; 
+            max-width: 1200px; 
+            margin: 0 auto; 
+        } 
+ 
+        .section-title { 
+            text-align: center; 
+            font-size: 2.5rem; 
+            color: var(--primary-color); 
+            margin-bottom: 1rem; 
+            position: relative; 
+        } 
+ 
+        .section-title::after { 
+            content: ''; 
+            display: block; 
+            width: 50px; 
+            height: 3px; 
+            background-color: var(--accent-color); 
+            margin: 0.5rem auto 0 auto; 
+            border-radius: 2px; 
+        } 
+ 
+        .section-subtitle { 
+            text-align: center; 
+            color: var(--text-light); 
+            margin-bottom: 3rem; 
+            max-width: 600px; 
+            margin-left: auto; 
+            margin-right: auto; 
+        } 
+ 
+        /* --- METRICS / COUNTER BLOCK --- */ 
+        .metrics-bar { 
+            background-color: var(--primary-color); 
+            color: var(--white); 
+            border-radius: 20px; 
+            padding: 3rem 2rem; 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+            gap: 2rem; 
+            text-align: center; 
+            margin-bottom: 4rem; 
+            box-shadow: 0 10px 30px rgba(74, 107, 83, 0.15); 
+        } 
+ 
+        .metric-item h3 { 
+            font-size: 2.5rem; 
+            font-weight: 600; 
+            margin-bottom: 0.5rem; 
+        } 
+ 
+        .metric-item p { 
+            font-size: 0.95rem; 
+            opacity: 0.9; 
+            font-weight: 300; 
+        } 
+ 
+        /* --- INTERACTIVE FILTER SWITCHES --- */ 
+        .filter-container { 
+            display: flex; 
+            justify-content: center; 
+            gap: 1rem; 
+            margin-bottom: 3rem; 
+        } 
+ 
+        .filter-btn { 
+            background-color: var(--white); 
+            border: 1px solid var(--accent-color); 
+            color: var(--text-dark); 
+            padding: 0.6rem 1.8rem; 
+            border-radius: 30px; 
+            font-weight: 600; 
+            cursor: pointer; 
+            transition: var(--transition); 
+        } 
+ 
+        .filter-btn:hover, .filter-btn.active { 
+            background-color: var(--primary-color); 
+            border-color: var(--primary-color); 
+            color: var(--white); 
+            box-shadow: 0 4px 12px rgba(74, 107, 83, 0.15); 
+        } 
+ 
+        /* --- BENEFITS CARDS GRID --- */ 
+        .benefits-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+            gap: 2rem; 
+        } 
+ 
+        .benefit-card { 
+            background-color: var(--white); 
+            border-radius: 15px; 
+            padding: 2.5rem 2rem; 
+            border: 1px solid var(--primary-light); 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.02); 
+            transition: var(--transition); 
+            display: flex; 
+            flex-direction: column; 
+            gap: 1rem; 
+            animation: fadeIn 0.5s ease-out; 
+        } 
+ 
+        .benefit-card:hover { 
+            transform: translateY(-5px); 
+            box-shadow: 0 12px 25px rgba(74, 107, 83, 0.08); 
+        } 
+ 
+        .benefit-icon { 
+            width: 55px; 
+            height: 55px; 
+            background-color: var(--primary-light); 
+            color: var(--primary-color); 
+            border-radius: 12px; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            font-size: 1.5rem; 
+        } 
+ 
+        .benefit-card h4 { 
+            font-size: 1.4rem; 
+            color: var(--primary-color); 
+        } 
+ 
+        .benefit-card p { 
+            color: var(--text-light); 
+            font-size: 0.95rem; 
+            text-align: justify; 
+        } 
+ 
+        .tag { 
+            display: inline-block; 
+            align-self: flex-start; 
+            font-size: 0.75rem; 
+            text-transform: uppercase; 
+            font-weight: 600; 
+            letter-spacing: 0.5px; 
+            padding: 0.2rem 0.8rem; 
+            border-radius: 20px; 
+        } 
+ 
+        .tag.physical { background-color: #E2EAF4; color: #3A6EA5; } 
+        .tag.mental { background-color: #EFE5FD; color: #7B2CBF; } 
+        .tag.spiritual { background-color: #EBF2EE; color: #4A6B53; } 
+ 
+        /* --- FOOTER --- */ 
+        footer { 
+            background-color: var(--primary-color); 
+            color: var(--white); 
+            text-align: center; 
+            padding: 2rem; 
+            margin-top: 5rem; 
+            font-size: 0.9rem; 
+        } 
+ 
+        @keyframes fadeIn { 
+            from { opacity: 0; transform: scale(0.98); } 
+            to { opacity: 1; transform: scale(1); } 
+        } 
+ 
+        /* --- RESPONSIVE STYLES --- */ 
+        @media (max-width: 768px) { 
+            .nav-links { 
+                display: none; 
+                flex-direction: column; 
+                position: absolute; 
+                top: 100%; 
+                left: 0; 
+                width: 100%; 
+                background-color: var(--white); 
+                padding: 1.5rem; 
+                box-shadow: 0 5px 10px rgba(0,0,0,0.05); 
+                text-align: center; 
+                gap: 1.2rem; 
+                z-index: 999; 
+            } 
+            .nav-links.active { display: flex; } 
+            .menu-toggle { display: block; } 
+            .filter-container { flex-wrap: wrap; } 
+        } 
+    </style> 
+</head> 
+<body> 
+ 
+    <header> 
+        <nav class="navbar"> 
+            <a href="home.html" class="logo"><i class="fa-solid fa-seedling"></i> Ananda</a> 
+            <div class="menu-toggle" id="mobile-menu"> 
+                <i class="fa-solid fa-bars"></i> 
+            </div> 
+            <ul class="nav-links">
+                <li><a href="/home">Home</a></li>
+                <li><a href="/guide">Yoga Guide</a></li>
+                <li><a href="/benefits" class="active">Benefits</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/contact">Contact</a></li>
+            </ul>
+            <div id="google_translate_element"></div>
+        </nav> 
+    </header> 
+ 
+    <section id="benefits-section"> 
+        <h2 class="section-title">Holistic Benefits</h2> 
+        <p class="section-subtitle">Discover how regular asana and conscious pranayama routines reframe your complete biological and cognitive health metrics.</p> 
+ 
+        <div class="metrics-bar"> 
+            <div class="metric-item"> 
+                <h3 class="counter" data-target="25">0</h3> 
+                <p>Percent Average Stress Reduction</p> 
+            </div> 
+            <div class="metric-item"> 
+                <h3 class="counter" data-target="40">0</h3> 
+                <p>Percent Flexibility Improvement</p> 
+            </div> 
+            <div class="metric-item"> 
+                <h3 class="counter" data-target="15">0</h3> 
+                <p>BPM Resting Heart Optimization</p> 
+            </div> 
+            <div class="metric-item"> 
+                <h3 class="counter" data-target="100">0</h3> 
+                <p>Mind-Body Connectivity</p> 
+            </div> 
+        </div> 
+ 
+        <div class="filter-container"> 
+            <button class="filter-btn active" data-filter="all">Show All</button> 
+            <button class="filter-btn" data-filter="physical">Physical</button> 
+            <button class="filter-btn" data-filter="mental">Mental</button> 
+            <button class="filter-btn" data-filter="spiritual">Spiritual</button> 
+        </div> 
+ 
+        <div class="benefits-grid" id="benefitsGrid"> 
+            <div class="benefit-card" data-category="physical"> 
+                <div class="benefit-icon"><i class="fa-solid fa-child-reaching"></i></div> 
+                <span class="tag physical">Physical</span> 
+                <h4>Enhanced Structural Flexibility</h4> 
+                <p>Consistent stretching pathways systematically unpack constricted myofascial tissue and tight muscle strings, elongating full body range of motion while minimizing athletic strain liabilities.</p> 
+            </div> 
+ 
+            <div class="benefit-card" data-category="mental"> 
+                <div class="benefit-icon"><i class="fa-solid fa-brain"></i></div> 
+                <span class="tag mental">Mental</span> 
+                <h4>Cortisol Level Reduction</h4> 
+                <p>By prioritizing rhythmic, slow breathing cycles, yoga down-regulates sympathetic nervous firing, downscaling systemic cortisol levels while mitigating anxiety patterns effortlessly.</p> 
+            </div> 
+ 
+            <div class="benefit-card" data-category="physical"> 
+                <div class="benefit-icon"><i class="fa-solid fa-bone"></i></div> 
+                <span class="tag physical">Physical</span> 
+                <h4>Spinal Decompression & Posture</h4> 
+                <p>Targeted balancing holds and back arch exercises counteract modern desk-slouching hazards. They build critical deep back-bone groups and re-align spatial vertebrae safely.</p> 
+            </div> 
+ 
+            <div class="benefit-card" data-category="spiritual"> 
+                <div class="benefit-icon"><i class="fa-solid fa-om"></i></div> 
+                <span class="tag spiritual">Spiritual</span> 
+                <h4>Heightened Present Awareness</h4> 
+                <p>Linking conscious physical motion directly to individual breath pulses anchors focus inside the immediate present. This minimizes recursive cognitive cycles and brings inner calm.</p> 
+            </div> 
+ 
+            <div class="benefit-card" data-category="mental"> 
+                <div class="benefit-icon"><i class="fa-solid fa-bed"></i></div> 
+                <span class="tag mental">Mental</span> 
+                <h4>Deep Sleep Cycle Synthesis</h4> 
+                <p>The structured neuro-muscular cooling routine found in restorative yoga practices triggers rapid shift entry into deep REM sleep cycles, maximizing cell-restoration efficiency.</p> 
+            </div> 
+ 
+            <div class="benefit-card" data-category="spiritual"> 
+                <div class="benefit-icon"><i class="fa-solid fa-heart-pulse"></i></div> 
+                <span class="tag spiritual">Spiritual</span> 
+                <h4>Vital Life-Force (Prana) flow</h4> 
+                <p>Clearing away internal physiological resistance patterns allows vital life-force streams to cycle smoothly across physical neural lines, raising daily productivity baselines.</p> 
+            </div> 
+        </div> 
+    </section> 
+ 
+    <footer> 
+        <p>&copy; 2026 Ananda Yoga Guide App. Preserving Timeless Roots & Well-being.</p> 
+    </footer> 
+ 
+    <script> 
+        // Mobile Navigation Toggle 
+        const mobileMenu = document.getElementById('mobile-menu'); 
+        const navLinks = document.querySelector('.nav-links'); 
+ 
+        mobileMenu.addEventListener('click', () => { 
+            navLinks.classList.toggle('active'); 
+            mobileMenu.querySelector('i').classList.toggle('fa-bars'); 
+            mobileMenu.querySelector('i').classList.toggle('fa-xmark'); 
+        }); 
+ 
+        // Interactive Category Filter Logic 
+        const filterButtons = document.querySelectorAll('.filter-btn'); 
+        const benefitCards = document.querySelectorAll('.benefit-card'); 
+ 
+        filterButtons.forEach(button => { 
+            button.addEventListener('click', () => { 
+                const targetFilter = button.getAttribute('data-filter'); 
+ 
+                // Toggle Active Button styling 
+                filterButtons.forEach(btn => btn.classList.remove('active')); 
+                button.classList.add('active'); 
+ 
+                // Filter elements on grid 
+                benefitCards.forEach(card => { 
+                    const cardCat = card.getAttribute('data-category'); 
+                    if (targetFilter === 'all' || cardCat === targetFilter) { 
+                        card.style.display = 'flex'; 
+                    } else { 
+                        card.style.display = 'none'; 
+                    } 
+                }); 
+            }); 
+        }); 
+ 
+        // Numerical Counter Rolling Animation Logic 
+        const counters = document.querySelectorAll('.counter'); 
+        counters.forEach(counter => { 
+            counter.innerText = '0'; 
+             
+            const updateCounter = () => { 
+                const target = +counter.getAttribute('data-target'); 
+                const count = +counter.innerText; 
+                // Adjust value below to change scroll speeds 
+                const increment = target / 30; 
+ 
+                if(count < target) { 
+                    counter.innerText = `${Math.ceil(count + increment)}`; 
+                    setTimeout(updateCounter, 30); 
+                } else { 
+                    counter.innerText = target + (target === 100 ? '%' : '%'); 
+                } 
+            }; 
+            updateCounter(); 
+        }); 
+    </script> 
+    !-- GOOGLE TRANSLATE -->
+
+    <script>
+        function googleTranslateElementInit() {
+
+            new google.translate.TranslateElement(
+            {
+                pageLanguage:'en',
+                includedLanguages:'en,ta,hi,fr,es,de,ja,zh-CN',
+                layout:google.translate.TranslateElement.InlineLayout.SIMPLE
+            },
+            'google_translate_element'
+            );
+
+        }
+    </script>
+    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    
+
+</body> 
+</html>
